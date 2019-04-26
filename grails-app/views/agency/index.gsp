@@ -8,12 +8,14 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
-    <title></title>
+    <title>Buscador de agencias</title>
     <meta name="layout" content="main"/>
 </head>
 
 <body>
-
+<h1>
+    Buscador de agencias
+</h1>
 <form class="form-horizontal" style="margin:0 auto">
     <div class="form-group">
         <label class="col-lg-4 control-label">Site ID</label>
