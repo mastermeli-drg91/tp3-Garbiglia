@@ -86,7 +86,7 @@
             success: function(resp){
                 // var cat_head = document.getElementById("category_head");
                 // console.log(site);
-                // console.log(resp.data)
+                console.log(resp.data)
                 var val = resp.data
                 // cat_head.innerText = resp.name;
                 var subcats_element = document.getElementById("data2");
@@ -102,34 +102,63 @@
                 val.forEach(function(data){
                     var inicio = document.createElement("P");
                     inicio.innerText = "Agencia: ";
+                    var nombre = document.createElement("P");
+                    nombre.innerText = data.description;
                     var dire = document.createElement("P");
-                    dire.innerText = data.address.address_line;
+                    dire.innerText = "Direccion: " + data.address.address_line;
+                    var distancia = document.createElement("P");
+                    distancia.innerText = "Distancia: " +data.distance;
                     var ciudad = document.createElement("P");
-                    ciudad.innerText = data.address.city;
+                    ciudad.innerText = "Ciudad: " +data.address.city;
                     var pais = document.createElement("P");
-                    pais.innerText = data.address.country;
+                    pais.innerText = "Pais: " +data.address.country;
+                    var agencyCode = document.createElement("P");
+                    agencyCode.innerText = "AgencyCode: " +data.agency_code;
                     var texto4 = document.createElement("br");
+                    var texto5 = document.createElement("br");
+
                     inicio.style = "display: block; font-size: 14px";
                     dire.style = "display: block; font-size: 12px";
                     ciudad.style = "display: block; font-size: 10px";
                     pais.style = "display: block; font-size: 10px";
+                    distancia.style = "display: block; font-size: 10px";
+                    agencyCode.style = "display: block; font-size: 10px";
 
+                    var like = document.createElement("BUTTON");
+                    like.innerText = "LIKE";
+                    %{--like.onclick = ${like()};--}%
+
+                    var unlike = document.createElement("BUTTON");
+                    unlike.innerText = "UNLIKE";
                     // console.log(data.address);
                     // console.log(data.address.address_line);
 
                     col_div.appendChild(inicio)
+                    col_div.appendChild(nombre)
                     col_div.appendChild(dire)
                     col_div.appendChild(ciudad)
                     col_div.appendChild(pais)
+                    col_div.appendChild(distancia)
+                    col_div.appendChild(agencyCode)
+                    col_div.appendChild(like)
+                    col_div.appendChild(unlike)
                     col_div.appendChild(texto4)
+                    col_div.appendChild(texto5)
+
 
 
                 })
                 subcats_element.appendChild(col_div)
+
+
             }
         })
-    };
 
+
+    };
+    function like(){
+        console.log("Like")
+    };
 </script>
 
 
